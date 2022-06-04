@@ -18,7 +18,7 @@ function mainMenu() {
             contador();
             break;
         case '2':
-            saveR();
+            saveR1();
             break;
         case '3':
             showR();
@@ -26,6 +26,7 @@ function mainMenu() {
         case '4':
             alert('Gracias por utilizar nuestra App!');
             break;
+
 
     }
 }
@@ -46,6 +47,7 @@ function contador() {
 
     let suma = b1000 + b500 + b200 + b100 + b50 + b20 + b10 + b5 + b2 + b1;
     contar = prompt(`El monto total de los billetes es: ${suma}\n Presione:\n 1: Para iniciar un nuevo contador. \n 2: Para guardar rendicion. \n 3: Para Volver al Menu Principal. `);
+    efectivoContado = suma;
     if (contar == 1) {
         contador();
     } else if (contar == 2) {
@@ -58,6 +60,16 @@ function contador() {
 
 function saveR() {
     let date = prompt('Ingrese Fecha de la Rendicion con formato DD-MM-AAAA');
+    let cash = efectivoContado;
+    let transfer = Number(prompt('Ingrese el total de Transferencias'));
+    let cheq = Number(prompt('Ingrese el total de Cheques'));
+    let mp = Number(prompt('Ingrese el total de Mercado Pago'));
+    rendicionesArray.push(new Rendicion(date, cash, transfer, cheq, mp));
+    mainMenu();
+}
+
+function saveR1() {
+    let date = prompt('Ingrese Fecha de la Rendicion con formato DD-MM-AAAA');
     let cash = Number(prompt('Ingrese la cantidad de dinero en Efectivo'));
     let transfer = Number(prompt('Ingrese el total de Transferencias'));
     let cheq = Number(prompt('Ingrese el total de Cheques'));
@@ -68,6 +80,5 @@ function saveR() {
 
 function showR() {
     console.log(rendicionesArray);
-    console.log('ss')
     mainMenu();
 }
