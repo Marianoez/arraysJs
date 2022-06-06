@@ -52,7 +52,6 @@ function contador() {
         contador();
     } else if (contar == 2) {
         saveR();
-        mainMenu();
     } else if (contar == 3) {
         mainMenu();
     }
